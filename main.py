@@ -96,6 +96,12 @@ def add_prompt(prompts):
     print("프롬프트가 추가되었습니다.")
 
 
+def format_prompt_row(index, prompt):
+    """목록, 검색, 즐겨찾기에서 같은 번호와 표시 형식을 사용한다."""
+    star = " ⭐" if prompt["favorite"] else ""
+    return f"{index + 1}. [{prompt['category']}] {prompt['title']}{star}"
+
+
 def print_prompt_rows(prompts, selected=None):
     """번호는 언제나 전체 목록의 번호를 사용한다."""
     if selected is None:
@@ -105,9 +111,7 @@ def print_prompt_rows(prompts, selected=None):
         print("표시할 프롬프트가 없습니다.")
         return
     for index in selected:
-        prompt = prompts[index]
-        star = " ⭐" if prompt["favorite"] else ""
-        print(f"{index + 1}. [{prompt['category']}] {prompt['title']}{star}")
+        print(format_prompt_row(index, prompts[index]))
     print(f"총 {len(selected)}개")
 
 
