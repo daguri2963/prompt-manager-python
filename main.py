@@ -145,6 +145,7 @@ def select_prompt_index(prompts):
     if not prompts:
         print("저장된 프롬프트가 없습니다.")
         return None
+    print_prompt_rows(prompts)
     value = input("프롬프트 번호: ").strip()
     if not value.isdecimal() or not 1 <= int(value) <= len(prompts):
         print("올바른 프롬프트 번호를 입력해주세요.")
