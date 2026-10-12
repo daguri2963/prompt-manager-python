@@ -74,5 +74,6 @@ python -m unittest test_main -v
 
 - `main.py`: 프롬프트 관리 프로그램
 - `hello.py`: Python 설치를 확인하는 첫 연습 파일
+- `코드-설명서.md`: 함수·Python 문법·터미널 명령어를 처음부터 설명한 문서
 - `prd.md`: 과제 요구사항 정리
 - `작업-체크리스트.md`: 작업 진행 상태
