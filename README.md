@@ -60,6 +60,16 @@ python -m unittest test_main -v
 
 현재 시작 데이터 3개는 이 프로젝트를 위해 새로 작성한 **예시 프롬프트**입니다. 이전 미션에서 작성한 프롬프트가 준비되면 `main.py`의 `initial_prompts()`에 있는 예시를 교체해야 과제의 해당 조건을 충족합니다.
 
+## 제출 스크린샷
+
+실제 VS Code 터미널에서 실행하거나 계정 메뉴를 확인한 화면입니다.
+
+| 구분 | 화면 |
+| --- | --- |
+| 개발 환경 | [VS Code의 Python 확장과 Python 버전](screenshots/01-VSCode-Python확장과버전.png), [프로젝트 폴더와 Python 버전](screenshots/02-프로젝트폴더와Python버전.png) |
+| 프로그램 실행 | [메뉴](screenshots/03-프로그램메뉴.png), [목록](screenshots/04-프롬프트목록.png), [추가](screenshots/05-프롬프트추가.png), [검색](screenshots/06-프롬프트검색.png) |
+| Git 및 GitHub | [Git 버전](screenshots/07-Git버전.png), [Git 사용자 설정](screenshots/08-Git사용자설정.png), [커밋 그래프](screenshots/09-Git커밋그래프.png), [VS Code의 GitHub 로그인](screenshots/10-VSCode-GitHub로그인.png) |
+
 ## 파일
 
 - `main.py`: 프롬프트 관리 프로그램
