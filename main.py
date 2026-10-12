@@ -81,7 +81,11 @@ def choose_category(prompts, allow_custom=False):
             if 1 <= number <= len(categories):
                 return categories[number - 1]
             if allow_custom and number == len(categories) + 1:
-                return nonempty_input("새 카테고리 이름: ")
+                name = nonempty_input("새 카테고리 이름: ")
+                for category in categories:
+                    if category.casefold() == name.casefold():
+                        return category
+                return name
         print("목록에 있는 번호를 입력해주세요.")
 
 
