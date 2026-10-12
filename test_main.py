@@ -44,6 +44,28 @@ class PromptManagerTests(unittest.TestCase):
         self.assertIn("4. [텍스트 생성] 검색 대상", output.getvalue())
         self.assertIn("총 1개", output.getvalue())
 
+    def test_invalid_number_does_not_change_favorites(self):
+        output = io.StringIO()
+        with patch("builtins.input", return_value="99"), redirect_stdout(output):
+            main.toggle_favorite(self.prompts)
+        self.assertIn("올바른 프롬프트 번호", output.getvalue())
+        self.assertFalse(any(prompt["favorite"] for prompt in self.prompts))
+
+    def test_favorite_can_be_added_and_removed(self):
+        with patch("builtins.input", return_value="1"), redirect_stdout(io.StringIO()):
+            main.toggle_favorite(self.prompts)
+        self.assertTrue(self.prompts[0]["favorite"])
+        with patch("builtins.input", return_value="1"), redirect_stdout(io.StringIO()):
+            main.toggle_favorite(self.prompts)
+        self.assertFalse(self.prompts[0]["favorite"])
+
+    def test_invalid_menu_choice_returns_to_menu(self):
+        output = io.StringIO()
+        with patch("builtins.input", side_effect=["잘못된 값", "0"]), redirect_stdout(output):
+            main.main()
+        self.assertIn("메뉴에 있는 번호", output.getvalue())
+        self.assertGreaterEqual(output.getvalue().count("=== 나만의 프롬프트 관리 ==="), 2)
+
 
 if __name__ == "__main__":
     unittest.main()
